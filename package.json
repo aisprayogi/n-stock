@@ -1,0 +1,23 @@
+{
+  "name": "12-bamazon",
+  "version": "1.0.0",
+  "description": "1. Screenshot 1\r 2. Screenshot 2\r 3. Screenshot 3",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-lacy/BAM-azon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben-lacy/BAM-azon/issues"
+  },
+  "homepage": "https://github.com/ben-lacy/BAM-azon#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0",
+    "mysql": "^2.15.0"
+  }
+}
