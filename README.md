@@ -6,7 +6,7 @@
 * Asks if they want to keep shopping. If not, it ends the connection.
 
 ### Customer Mode In Action
-![Customer Mode](/images/customerview.png)
+![Customer Mode](/images/customerView.png)
 
 ## Manager Mode
 * Asks you what action you want to perform.
