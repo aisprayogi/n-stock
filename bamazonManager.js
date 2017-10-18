@@ -114,9 +114,10 @@ function addToInventory() {
             var amt = parseInt(data.amount)
             connection.query("SELECT * FROM products", function(err, res) {
                 if (err) throw err;
-                for (var i = 0; i < res.length; i++) {
-                    if (id === res[i].item_id) {
-                        var updateInv = res[i].stock_quantity + amt;
+
+                res.map(function(tableItems){
+                    if (id === tableItems.item_id) {
+                        var updateInv = tableItems.stock_quantity + amt;
                         connection.query(
                             "UPDATE products SET ? WHERE ?",
                             [
@@ -136,8 +137,7 @@ function addToInventory() {
                             }
                         );
                     }
-                }
-        
+                });        
             });
         });
     }, 500);
