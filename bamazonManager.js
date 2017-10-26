@@ -140,7 +140,7 @@ function addToInventory() {
                 });        
             });
         });
-    }, 500);
+    }, 1000);
 }
 
 function displayProducts(test) {
