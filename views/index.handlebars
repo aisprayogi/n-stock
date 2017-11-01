@@ -7,12 +7,12 @@
 				{{#each burgers}}
 					{{#unless this.devoured}}
 						<li>
-              <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
+							<form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
 								<h4>
 									{{this.burger_name}}
-                	<button type="submit">DEVOUR IT!</button>
+									<button type="submit">DEVOUR IT!</button>
 								</h4>
-              </form>
+							</form>
 						</li>
 					{{/unless}}
 				{{/each}}
