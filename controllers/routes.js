@@ -1,24 +1,20 @@
 var express = require("express");
 var connection = require("./sql-connection.js");
+var path = require("path");
 var router = express.Router();
 
 router.get("/", function(req, res) {
-  connection.query("SELECT * FROM products", function(err, res) {
-    if (err) { throw err };
-    var dbArray = [];
-    for (var k = 0; k < res.length; k++) {
-      var item = {
-        ID: res[k].item_id,
-        Name: res[k].product_name,
-        Department: res[k].department_name,
-        Price: "$" + res[k].price,
-        Stock: res[k].stock_quantity
-      };
-      dbArray.push(item);
-    }
-  });
-  res.render("index", handlebarsObject);  // RETURN INDEX.HANDLEBARS WITH SQL DATA
+  res.sendFile(path.join(__dirname, '../public/index.html'));  // RETURN INDEX.HTML
 });
+
+// SELECT ALL FROM TABLE
+  // connection.query("SELECT * FROM products", function(err, res) {
+  //   if (err) { throw err };
+  //   var dbArray = [];
+  //   for (var k = 0; k < res.length; k++) {
+  //     // DO SOMETHING WITH THE DATA
+  //   }
+  // });
 
 router.post("/api/products", function(req, res) {
   connection.query(
@@ -67,7 +63,7 @@ router.delete("/route/name/here", function(req, res) {
     if (err) { throw err }
     res.map(function(tableItems){
 
-    }
+    });
   })
 });
 

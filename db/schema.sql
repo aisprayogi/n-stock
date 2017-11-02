@@ -1,6 +1,5 @@
-DROP DATABASE IF EXISTS bamazondb;
-CREATE DATABASE bamazondb;
-USE bamazondb;
+CREATE DATABASE inventory_master;
+USE inventory_master;
 
 CREATE TABLE products(
   item_id INTEGER(10) AUTO_INCREMENT NOT NULL,
