@@ -1,3 +1,60 @@
 body, html {
   background-color: #c9c9c9;
 }
+
+#logo {
+  height: 200px;
+  width: 170px;
+  padding: 40px;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 250px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #a9a9a9;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 15px 15px 15px 40px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover, 
+.offcanvas a:focus{
+  color: #fff;
+  background-color: #777;
+  border-right: solid 4px #5555e7;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav #closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  margin-left: 250px;
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav a {font-size: 18px;}
+}
