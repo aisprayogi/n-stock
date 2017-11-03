@@ -16,7 +16,7 @@ connection.connect(function(err) {
     console.error("MYSQL CONNECTION ERROR: " + err.stack);
     return;
   }
-  console.log("Database Connected at ID " + connection.threadId);
+  console.log("MySQL Database Connected: ID #" + connection.threadId);
 });
 
 module.exports = connection;
