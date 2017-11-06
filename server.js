@@ -1,22 +1,25 @@
+// -------------- EXPRESS ------------------ //
 var express = require("express");
-var methodOverride = require("method-override");
-var bodyParser = require("body-parser");
-
-var port = process.env.PORT || 3000;
 var app = express();
+var port = process.env.PORT || 3000;
 
-// Serve static content for the app from the "public" directory in the application directory.
+// ----------- STATIC ROUTES --------------- //
 app.use(express.static("public"));
 
-// Set Body-Parser
+// ------------ BODY-PARSER ---------------- //
+var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// Override form POST to have ?_method=PUT and ?_method=DELETE
+// ---------- METHOD-OVERRIDE -------------- //
+var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
-// Import routes and give the server access to them.
+// --------------- ROUTES ------------------ //
 var routes = require("./controllers/routes.js");
 app.use("/", routes);
 
-// Listen
-app.listen(port);
+// ----------- PORT LISTENER --------------- //
+app.listen(port, function() {
+    console.log("App listening on port " + port);
+});
