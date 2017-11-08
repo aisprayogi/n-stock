@@ -7,7 +7,7 @@ var port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 // -- DYNAMIC ROUTES -- //
-var routes = require("./controllers/products_controller.js");
+var routes = require("./controllers/product_controller.js");
 app.use("/", routes);
 
 // -- HANDLEBARS -- //

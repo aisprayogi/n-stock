@@ -2,20 +2,20 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function(req, res) {
-    res.render("index");  // RETURN INDEX.HANDLEBARS WITHOUT DATA FOR TEMPLATING
+  res.render("index");  // RETURN INDEX.HANDLEBARS WITHOUT DATA FOR TEMPLATING
 });
 
 router.get("/viewall", function(req, res) {
-    // SELECT ALL FROM DB
-    // ASSIGN DB DATA TO A VARIABLE "WHATEVER"
-    var whatever = {};
-    res.render("viewall", whatever);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+  // SELECT ALL FROM DB
+  // ASSIGN DB DATA TO A VARIABLE "WHATEVER"
+  var whatever = {};
+  res.render("viewall", whatever);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
 });
 
 router.get("/reports", function(req, res) {
-    // SELECT ALL FROM DB
-    // MANIPULATE THE DATA AS NEEDED TO POPULATE THE CHARTS
-    res.render("reports");  // RETURN REPORTS.HANDLEBARS WITHOUT DATA FOR TEMPLATING
+  // SELECT ALL FROM DB
+  // MANIPULATE THE DATA AS NEEDED TO POPULATE THE CHARTS
+  res.render("reports");  // RETURN REPORTS.HANDLEBARS WITHOUT DATA FOR TEMPLATING
 });
 
 router.post("/api/products", function(req, res) {

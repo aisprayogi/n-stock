@@ -8,9 +8,25 @@
 		<title>N-Stock | Inventory Management System</title>
 	</head>
 	<body>
-		{{{ body }}}
+		{{!-- "MAIN" TEMPLATE GOES HERE --}}
+			<div class="container text-center" style="background-color: #eeffc0; border: solid 1px black;">
+				<h5>This only loads once.</h5>
+				<h2>
+					<a href="/"> -HOME- </a>
+					<a href="/viewall"> -VIEW/EDIT- </a>
+					<a href="/reports"> -REPORTS- </a>
+				</h2>
+			</div>
+		{{!-- END MAIN TEMPLATE --}}
 
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>		
-		<script type="text/javascript" src="/js/app.js"></script>
+		{{!-- INDEX / VIEWALL / REPORTS WILL RENDER IN THE BODY --}}
+			<div class="container text-center" style="background-color: #c9c9c9; border: solid 1px black;">
+				<h5>This changes when links are clicked.</h5>
+				{{{ body }}}
+			</div>
+
+		{{!-- JAVASCRIPT LINKS HERE SO THE ENTIRE APP CAN ACCESS (I THINK... NEED TO TEST) --}}
+			<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>		
+			<script type="text/javascript" src="/js/app.js"></script>
 	</body>
 </html>
