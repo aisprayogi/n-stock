@@ -16,7 +16,7 @@ connection.connect(function(err) {
     console.error("MYSQL CONNECTION ERROR: " + err.stack);
     return;
   }
-  console.log("CONNECTED TO 'nstock' AS ID: " + connection.threadId);
+  console.log("MYSQL CONNECTED AS ID: " + connection.threadId);
 });
 
 module.exports = connection;
