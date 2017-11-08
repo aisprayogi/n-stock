@@ -6,8 +6,8 @@ if (process.env.JAWSDB_URL) {
   var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "root",
-    database: "inventory_master"
+    password: "",
+    database: "nstock"
   });
 }
 
@@ -16,7 +16,7 @@ connection.connect(function(err) {
     console.error("MYSQL CONNECTION ERROR: " + err.stack);
     return;
   }
-  console.log("MySQL Database Connected: ID #" + connection.threadId);
+  console.log("CONNECTED TO 'nstock' AS ID: " + connection.threadId);
 });
 
 module.exports = connection;
