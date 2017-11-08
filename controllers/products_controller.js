@@ -1,23 +1,33 @@
 var express = require("express");
-var burger = require("../models/burger.js");            // Import the model (burger.js) to use its database functions.
 var router = express.Router();
 
 router.get("/", function(req, res) {
-  // GRABS ALL ITEMS IN DB
+    res.render("index");  // RETURN INDEX.HANDLEBARS WITHOUT DATA FOR TEMPLATING
+});
+
+router.get("/viewall", function(req, res) {
+    // SELECT ALL FROM DB
+    // ASSIGN DB DATA TO A VARIABLE "WHATEVER"
+    var whatever = {};
+    res.render("viewall", whatever);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+});
+
+router.get("/reports", function(req, res) {
+    // SELECT ALL FROM DB
+    // MANIPULATE THE DATA AS NEEDED TO POPULATE THE CHARTS
+    res.render("reports");  // RETURN REPORTS.HANDLEBARS WITHOUT DATA FOR TEMPLATING
 });
 
 router.post("/api/products", function(req, res) {
-  // ADDS ITEM TO DB
+  // ADD PRODUCTS TO DB
 });
 
 router.put("/api/products/:id", function(req, res) {
-  var condition = 'id = ' + req.params.id;
-  // UPDATES ITEM IN DB
+  // UPDATE PRODUCT WITH ID __ IN DB
 });
 
 router.delete("/api/products/:id", function(req, res) {
-  var condition = 'id = ' + req.params.id;
-  // DELETES ITEM IN DB
+  // DELETE PRODUCT WITH ID __ FROM DB
 });
 
 module.exports = router;
