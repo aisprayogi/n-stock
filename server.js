@@ -1,15 +1,15 @@
+// -------------- EXPRESS ------------------ //
 var express = require("express");
-var methodOverride = require("method-override");
-var bodyParser = require("body-parser");
-
-var port = process.env.PORT || 3000;
 var app = express();
+var port = process.env.PORT || 3000;
 
-// Serve static content for the app from the "public" directory in the application directory.
+// ----------- STATIC ROUTES --------------- //
 app.use(express.static("public"));
 
-// Set Body-Parser
+// ------------ BODY-PARSER ---------------- //
+var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
@@ -23,5 +23,7 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/products_controller.js");
 app.use("/", routes);
 
-// Listen
-app.listen(port);
+// ----------- PORT LISTENER --------------- //
+app.listen(port, function() {
+    console.log("App listening on port " + port);
+});

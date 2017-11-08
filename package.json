@@ -1,5 +1,5 @@
 {
-  "name": "inventory-master",
+  "name": "n-stock",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,19 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ben-lacy/inventory-master.git"
+    "url": "git+https://github.com/ben-lacy/n-stock.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ben-lacy/inventory-master/issues"
+    "url": "https://github.com/ben-lacy/n-stock/issues"
   },
-  "homepage": "https://github.com/ben-lacy/inventory-master#readme",
+  "homepage": "https://github.com/ben-lacy/n-stock#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "method-override": "^2.3.10",
-    "mysql": "^2.15.0",
-    "path": "^0.12.7"
+    "mysql": "^2.15.0"
   }
 }
