@@ -1,15 +1,20 @@
 var express = require("express");
 var router = express.Router();
+var connection = require("../config/connection.js");
 
 router.get("/", function(req, res) {
   res.render("index");  // RETURN INDEX.HANDLEBARS WITHOUT DATA FOR TEMPLATING
 });
 
 router.get("/viewall", function(req, res) {
-  // SELECT ALL FROM DB
-  // ASSIGN DB DATA TO A VARIABLE "WHATEVER"
-  var whatever = {};
-  res.render("viewall", whatever);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+  var queryString = "SELECT * FROM products;";     // SQL QUERY
+  connection.query(queryString, function(err, result) {     // (MYSQL) CONNECTION.QUERY
+    if (err) { throw err; }                                   // THROW ERRORS
+    var hbObject = {
+      products: result
+    };
+    res.render("viewall", hbObject);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+  });
 });
 
 router.get("/reports", function(req, res) {
@@ -18,15 +23,15 @@ router.get("/reports", function(req, res) {
   res.render("reports");  // RETURN REPORTS.HANDLEBARS WITHOUT DATA FOR TEMPLATING
 });
 
-router.post("/api/products", function(req, res) {
+router.post("/api/add_product", function(req, res) {
   // ADD PRODUCTS TO DB
 });
 
-router.put("/api/products/:id", function(req, res) {
+router.put("/api/edit_product/:id", function(req, res) {
   // UPDATE PRODUCT WITH ID __ IN DB
 });
 
-router.delete("/api/products/:id", function(req, res) {
+router.delete("/api/delete_product/:id", function(req, res) {
   // DELETE PRODUCT WITH ID __ FROM DB
 });
 

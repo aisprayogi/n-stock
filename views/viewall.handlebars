@@ -1,4 +1,62 @@
 {{!-- DISPLAYS TABLE OF INVENTORY --}}
-<div class="jumbotron text-center">
-  <h1>'VIEWALL' PAGE</h1>
+<h1>'VIEWALL' PAGE</h1>
+
+<div class="table-responsive text-left"><h2>Table</h2>           
+  <table class="table table-condensed table-hover">
+    <thead>
+      <tr>
+        <th>ID#</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Price</th>
+        <th>In-Stock</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+        <tr>
+          <td class="col-sm-1">{{this.item_id}}</td>
+          <td class="col-sm-3">{{this.product_name}}</td>
+          <td class="col-sm-3">{{this.department_name}}</td>
+          <td class="col-sm-2">{{this.price}}</td>
+          <td class="col-sm-1">{{this.quantity_on_hand}}</td>
+          <td class="col-sm-2">
+            <button class='btn btn-xs btn-primary' data-index="{{this.item_id}}" alt='Edit'>
+              <span class='glyphicon glyphicon-pencil'></span>
+            </button>
+            <button class='btn btn-xs btn-danger' data-index="{{this.item_id}}" alt='Delete'>
+              <span class='glyphicon glyphicon-trash'></span>
+            </button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+  function edit(){
+    var editID = $(this).parents('button').attr("data-index");           // Get the item_id of the product to edit
+    console.log(editID);
+    var editRowTDs = $("table").children().eq(1).children("tr").eq(editID-1).children("td");   // Get the <td>'s for that row
+    // Update the buttons
+    editRowTDs.eq(5).html("<button class='btn btn-xs btn-success' data-index='" + editID + "' alt='Confirm'><span class='glyphicon glyphicon-ok'></span></button> " + 
+                          " <button class='btn btn-xs btn-danger' data-index='" + editID + "' alt='Cancel'><span class='glyphicon glyphicon-remove'></span></button>");
+
+    row0 = editRowTDs.eq(0).text();     // Grab the values from each cell
+    row1 = editRowTDs.eq(1).text();
+    row2 = editRowTDs.eq(2).text();
+    row3 = editRowTDs.eq(3).text();
+    row4 = editRowTDs.eq(4).text();
+
+    editRowTDs.eq(0).html("<input type='text' value='" + editRowTDs.eq(0).text() + "' id='row0'>");     // Input boxes
+    editRowTDs.eq(1).html("<input type='text' value='" + editRowTDs.eq(1).text() + "' id='row1'>");     // Filled with the values
+    editRowTDs.eq(2).html("<input type='text' value='" + editRowTDs.eq(2).text() + "' id='row2'>");     // That were in the TD's
+  }
+  
+  // $(document).on("click", ".glyphicon-ok", saveThatTrain);
+  $(document).on("click", ".glyphicon-pencil", edit);
+  // $(document).on("click", ".glyphicon-trash", removeThatTrain);
+  // $(document).on("click", ".glyphicon-remove", cancelThatTrain);
+</script>
