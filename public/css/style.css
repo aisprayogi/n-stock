@@ -9,7 +9,7 @@
     height: 100%;
     overflow: hidden;
   }
-    .affix-content .container .page-header{
+  .affix-content .container .page-header{
     margin-top: 0;
   }
   .sidebar-nav{
@@ -50,7 +50,14 @@
     padding-top: 12px;
     padding-bottom: 12px;
   }  
+
+  .container .jumbotron{
+  margin-right: 30px;
+  background: transparent;
+  }
 }
+
+
 
 @media (min-width: 769px){
   .affix-content .container {

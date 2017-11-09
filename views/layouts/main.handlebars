@@ -17,59 +17,54 @@
 	<body>
 		{{!-- "MAIN" TEMPLATE GOES HERE --}}
 
-<div class="row affix-row">
-    <div class="col-sm-3 col-md-2 affix-sidebar">
-		<div class="sidebar-nav">
-  <div class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <span class="visible-xs navbar-brand">Sidebar menu</span>
-    </div>
-    <div class="navbar-collapse collapse sidebar-navbar-collapse">
-      <ul class="nav navbar-nav" id="sidenav01">
-        <li class="active">
-          <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
-  			<img src="../img/n-stock-logo-text.png" alt="logo" height="100" width="75">
-          </a>
-        </li>
-        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>  Inventory</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>  Product Modification </a></li>
-        <li><a href=""><span class="glyphicon glyphicon-tasks"></span> Reports</a></li>
-      </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-	</div>
-	<div class="col-sm-9 col-md-10 affix-content">
-		<div class="container">
-			
-				<div class="page-header">
-	<h3><span class="glyphicon glyphicon-th-list"></span> Navigation</h3>
-</div>
-	{{!-- END MAIN TEMPLATE --}}
+		<div class="row affix-row">
+		    <div class="col-sm-3 col-md-2 affix-sidebar">
+			<div class="sidebar-nav">
+			  <div class="navbar navbar-default" role="navigation">
 
-		{{!-- INDEX / VIEWALL / REPORTS WILL RENDER IN THE BODY --}}
-			<div class="container text-center" style="background-color: #c9c9c9; border: solid 1px black;">
-				<h5>This changes when links are clicked.</h5>
-				{{{ body }}}
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      </button>
+			      <span class="visible-xs navbar-brand">Sidebar menu</span>
+			    </div>
+
+			    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+			      <ul class="nav navbar-nav" id="sidenav01">
+
+			        <li class="active">
+			          <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+			  			<img src="../img/n-stock-logo-text.png" alt="logo" height="100" width="75">
+			          </a>
+			        </li>
+
+					<li><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+			        <li><a href="/viewall"><span class="glyphicon glyphicon-list-alt"></span>  Inventory</a></li>
+			        <li><a href="/edit"><span class="glyphicon glyphicon-plus-sign"></span>  Product Modification </a></li>
+			        <li><a href="/reports"><span class="glyphicon glyphicon-tasks"></span> Reports</a></li>
+			      </ul>
+			     </div><!--/.nav-collapse -->
+		      </div>
+		  	</div>
 			</div>
-			
+
+			<div class="col-sm-9 col-md-10 affix-content">
+				<div class="container">
+					<div class="page-header">
+					<h3><span class="glyphicon glyphicon-stats"></span> Data at Your Fingertips</h3>
+					</div>
+
+					{{!-- INDEX / VIEWALL / REPORTS WILL RENDER IN THE BODY --}}
+					<div class="container text-center" id="bodyWell">
+						{{{ body }}}
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-
-
-</div>
-
-
-
-
-		
+	
 
 		{{!-- JAVASCRIPT LINKS HERE SO THE ENTIRE APP CAN ACCESS (I THINK... NEED TO TEST) --}}
 			<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
