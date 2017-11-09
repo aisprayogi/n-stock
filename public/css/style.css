@@ -1,107 +1,110 @@
-.wrapper {
-    display: flex;
-    align-items: stretch;
-}
+/* make sidebar nav vertical */ 
+@media (min-width: 768px){
+  .affix-content .container {
+    width: 700px;
+  }   
 
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
-}
-
-#sidebar.active {
-    margin-left: -250px;
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\e259';
+  html,body{
+    background-color: #f8f8f8;
+    height: 100%;
+    overflow: hidden;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .sidebar-nav{
+        position:fixed; 
+        width:100%;
+  }
+  .affix-sidebar{
+    padding-right:0; 
+    font-size:small;
+    padding-left: 0;
+  }  
+  .affix-row, .affix-container, .affix-content{
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;    
+  } 
+  .affix-content{
+    background-color:white; 
+  } 
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar{
+    border-radius:0; 
+    margin-bottom:0; 
+    border:0;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
     display: block;
-    position: absolute;
-    right: 20px;
-    font-family: 'Glyphicons Halflings';
-    font-size: 0.6em;
-}
-
-a[aria-expanded="true"]::before {
-    content: '\e260';
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-}
-
-/*
-    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
-*/
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-#sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    background: #dee1e5;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #dee1e5;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #dee1e5;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
     display: block;
-}
-#sidebar ul li a:hover {
-    color: #54a3d8;
-    background: #fff;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }  
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #dee1e5;
+@media (min-width: 769px){
+  .affix-content .container {
+    width: 600px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }  
 }
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #54a3d8
+
+@media (min-width: 992px){
+  .affix-content .container {
+  width: 900px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1220px){
+  .affix-row{
+    overflow: hidden;
+  }
+
+  .affix-content{
+    overflow: auto;
+  }
+
+  .affix-content .container {
+    width: 1000px;
+  }
+
+  .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .affix-content{
+    padding-right: 30px;
+    padding-left: 30px;
+  }  
+  .affix-title{
+    border-bottom: 1px solid #ecf0f1; 
+    padding-bottom:10px;
+  }
+  .navbar-nav {
+    margin: 0;
+  }
+  .navbar-collapse{
+    padding: 0;
+  }
+  .sidebar-nav .navbar li a:hover {
+    background-color: #428bca;
+    color: white;
+  }
+  .sidebar-nav .navbar li a > .caret {
+    margin-top: 8px;
+  }  
 }
