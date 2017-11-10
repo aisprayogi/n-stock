@@ -36,27 +36,68 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
-  function edit(){
-    var editID = $(this).parents('button').attr("data-index");           // Get the item_id of the product to edit
-    console.log(editID);
-    var editRowTDs = $("table").children().eq(1).children("tr").eq(editID-1).children("td");   // Get the <td>'s for that row
-    // Update the buttons
-    editRowTDs.eq(5).html("<button class='btn btn-xs btn-success' data-index='" + editID + "' alt='Confirm'><span class='glyphicon glyphicon-ok'></span></button> " + 
+  var td0='', td1='', td2='', td3='', td4='', td5='';
+// ENGAGES AN EDIT MODE FOR THAT ROW
+  function editIt(){
+    var editID = $(this).parents('button').attr("data-index");
+    var editROW = $("table").children().eq(1).children("tr").eq(editID-1).children("td");
+    editROW.eq(5).html("<button class='btn btn-xs btn-success' data-index='" + editID + "' alt='Confirm'><span class='glyphicon glyphicon-ok'></span></button> " + 
                           " <button class='btn btn-xs btn-danger' data-index='" + editID + "' alt='Cancel'><span class='glyphicon glyphicon-remove'></span></button>");
 
-    row0 = editRowTDs.eq(0).text();     // Grab the values from each cell
-    row1 = editRowTDs.eq(1).text();
-    row2 = editRowTDs.eq(2).text();
-    row3 = editRowTDs.eq(3).text();
-    row4 = editRowTDs.eq(4).text();
+    td0 = editROW.eq(0).text();     // STORE THE INITIAL VALUES OF THAT ROW'S <td>'s
+    td1 = editROW.eq(1).text();
+    td2 = editROW.eq(2).text();
+    td3 = editROW.eq(3).text();
+    td4 = editROW.eq(4).text();
 
-    editRowTDs.eq(0).html("<input type='text' value='" + editRowTDs.eq(0).text() + "' id='row0'>");
-    editRowTDs.eq(1).html("<input type='text' value='" + editRowTDs.eq(1).text() + "' id='row1'>");
-    editRowTDs.eq(2).html("<input type='text' value='" + editRowTDs.eq(2).text() + "' id='row2'>");
+    editROW.eq(0).html("<input type='text' value='" + editROW.eq(0).text() + "' id='td0'>");
+    editROW.eq(1).html("<input type='text' value='" + editROW.eq(1).text() + "' id='td1'>");
+    editROW.eq(2).html("<input type='text' value='" + editROW.eq(2).text() + "' id='td2'>");
+  }
+// SAVES THE CHANGES MADE TO THAT ROW
+  function saveIt(){
+    var saveID = $(this).parents('button').attr("data-index");  // GET ITEM ID
+    var saveROW = $("table").children().eq(1).children("tr").eq(saveID-1).children("td"); // GET ROW DATA
+    saveROW.eq(5).html("<button class='btn btn-xs btn-primary' data-index='" + saveID + "' alt='Edit'><span class='glyphicon glyphicon-pencil'></span></button> " + 
+                        " <button class='btn btn-xs btn-danger' data-index='" + saveID + "' alt='Delete'><span class='glyphicon glyphicon-trash'></span></button>");
+    td0 = $("#td0").val().trim(); // GRAB VALUES OF FORM INPUTS
+    td1 = $("#td1").val().trim();
+    td2 = $("#td2").val().trim();
+    cancelROW.eq(0).html(td0); // UPDATE THAT ROW OF THE TABLE
+    cancelROW.eq(1).html(td1);
+    cancelROW.eq(2).html(td2);
+
+    // SEND A PUT REQUEST TO MYSQL
+
+  }
+// REMOVES THE ITEM ON THAT ROW
+  function removeIt(){
+    var removeID = $(this).parents('button').attr("data-index");  // GET ITEM ID
+    var removeROW = $("table").children().eq(1).children("tr").eq(removeID-1).children("td"); // GET ROW DATA
+    td0 = removeROW.eq(0).text();     // STORE THE INITIAL VALUES OF THAT ROW'S <td>'s
+
+    // SEND A DELETE REQUEST TO MYSQL
+
+    $(this).closest('tr').remove(); // REMOVE THE ROW FROM THE TABLE
+  }
+
+// CANCELS THE EDIT MODE
+  function cancelIt(){
+    var cancelID = $(this).parents('button').attr("data-index");  // GET ITEM ID
+    var cancelROW = $("table").children().eq(1).children("tr").eq(cancelID-1).children("td"); // GET ROW DATA
+    cancelROW.eq(5).html("<button class='btn btn-xs btn-primary' data-index='" + cancelID + "' alt='Edit'><span class='glyphicon glyphicon-pencil'></span></button> " + 
+                            " <button class='btn btn-xs btn-danger' data-index='" + cancelID + "' alt='Delete'><span class='glyphicon glyphicon-trash'></span></button>");
+    cancelROW.eq(0).html(td0); // RESET THE ROW BACK TO ORIGINAL VALUES
+    cancelROW.eq(1).html(td1);
+    cancelROW.eq(2).html(td2);
+    cancelROW.eq(3).html(td3);
+    cancelROW.eq(4).html(td4);
   }
   
-  // $(document).on("click", ".glyphicon-ok", saveThatTrain);
-  $(document).on("click", ".glyphicon-pencil", edit);
-  // $(document).on("click", ".glyphicon-trash", removeThatTrain);
-  // $(document).on("click", ".glyphicon-remove", cancelThatTrain);
+// CLICK LISTENERS FOR EDIT BUTTONS
+  $(document).on("click", ".glyphicon-ok", saveIt);
+  $(document).on("click", ".glyphicon-pencil", editIt);
+  $(document).on("click", ".glyphicon-trash", removeIt);
+  $(document).on("click", ".glyphicon-remove", cancelIt);
+
 </script>
