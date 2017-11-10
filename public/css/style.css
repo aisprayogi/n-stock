@@ -11,6 +11,8 @@
   }
   .affix-content .container .page-header{
     margin-top: 0;
+    overflow: hidden;
+    width: 95%;
   }
   .sidebar-nav{
         position:fixed; 
@@ -55,11 +57,23 @@
   margin-right: 30px;
   background: transparent;
   }
+  
+  .input-group{
+    display: inline;
+    width: 80%;
+  }
 
   #jumboMain{
     background-image: url("../img/stock.jpeg");
     background-size: cover;
-
+  }
+  #jumboReports{
+    background-image: url("../img/reports.png");
+    background-size: cover;
+  }
+  #jumboViewAll{
+    background-image: url("../img/inventory.jpg");
+    background-size: cover;
   }
 }
 
@@ -83,7 +97,7 @@
   }
 }
 
-@media (min-width: 1220px){
+@media (min-width: 1260px){
   .affix-row{
     overflow: hidden;
   }
@@ -100,8 +114,8 @@
     margin-top: 0;
   }
   .affix-content{
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
   }  
   .affix-title{
     border-bottom: 1px solid #ecf0f1; 
@@ -125,4 +139,26 @@
     background-size: cover;
 
   }
+}
+
+@media (min-width: 350px) {
+  #jumboMain{
+    background-image: url("../img/stock.jpeg");
+    background-size: cover;
+    width: 100%;
+  }
+  #jumboReports{
+    background-image: url("../img/reports.png");
+    background-size: cover;
+  }
+  #jumboViewAll{
+    background-image: url("../img/inventory.jpg");
+    background-size: cover;
+  }
+
+  .input-group{
+  display: inline;
+  width: 70%;
+  }
+  
 }
