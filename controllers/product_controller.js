@@ -10,10 +10,19 @@ router.get("/viewall", function(req, res) {
   var queryString = "SELECT * FROM products;";     // SQL QUERY
   connection.query(queryString, function(err, result) {     // (MYSQL) CONNECTION.QUERY
     if (err) { throw err; }                                   // THROW ERRORS
-    var hbObject = {
+    for (var key in result) {
+      var price = (result[key].price).toString().split(".");
+      if (price[1] < 10) {
+        price[1] += "0";
+      } else if (!price[1]){
+        price.push('00');
+      }
+      result[key].price = price.join(".");
+    }
+    var hbObj = {
       products: result
     };
-    res.render("viewall", hbObject);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+    res.render("viewall", hbObj);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
   });
 });
 

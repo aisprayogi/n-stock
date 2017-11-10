@@ -8,4 +8,5 @@ INSERT INTO products (product_name, department_name, price, quantity_on_hand)
             ("Shirts", "Clothing", 5.50, 32),
             ("Shoes", "Clothing", 15.50, 82),
             ("Couch", "Furniture", 222.50, 12),
-            ("Chair", "Furniture", 112.50, 2);
+            ("Chair", "Furniture", 112.50, 2),
+            ("Table", "Furniture", 315.00, 15);
