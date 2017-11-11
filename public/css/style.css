@@ -1,188 +1,25 @@
-/* make sidebar nav vertical */ 
-html{
-  overflow-x: hidden;
-}
-
-div.navbar-collapse.sidebar-navbar-collapse.collapse.in { 
-  overflow-x:hidden;
-}
-
-#jumboMain{
+#jumboMain {
   background-image: url("../img/inventory.jpg"); 
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center; 
 }
-
-#jumboReports{
-  background-image: url("../img/reports.png");
-  background-size: cover;
-}
-
-#jumboViewAll{
-  background-image: url();
-  background-size: cover;
-}
-
-#whiteLogo{
-max-height: 50%;  
-  max-width: 50%; 
-  width: auto;
-  height: auto;
-  position: absolute;  
-  top: 0;  
-  bottom: 0;  
-  left: 0;  
-  right: 0;  
-  margin: auto;
-
-}
-
-#wareHouse{
+#whiteLogo {
   max-height: 50%;  
   max-width: 50%; 
   width: auto;
   height: auto;
-  position: absolute;  
-  top: 0;  
-  bottom: 0;  
-  left: 0;  
-  right: 0;  
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: auto;
 }
-
-.input-group{
-  display: inline;
-}
-
-#mainContainer{
-  background-image: url("../img/wareHouse.jpeg");
-  background-size: cover;
-  height:100vh;
-}
-
 .table th {
   text-align: center;
 }
-
 .table thead {
   background-color: #e9e9e9;
-}
-
-@media (min-width: 768px){
-  .affix-content .container {
-    width: 700px;
-  }   
-
-  html,body{
-    background-color: #f8f8f8;
-    overflow-x:hidden;
-  }
-  .affix-content .container .page-header{
-    margin-top: 0;
-    overflow: hidden;
-    width: 95%;
-  }
-  .sidebar-nav{
-        position:fixed;
-  }
-  .affix-sidebar{
-    padding-right:0; 
-    font-size:small;
-    padding-left: 0;
-  }  
-  .affix-row, .affix-container, .affix-content{
-    height: 100%;
-    margin-left: 0;
-    margin-right: 0;    
-  } 
-  .affix-content{
-    background-color:white; 
-  } 
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar{
-    border-radius:0; 
-    margin-bottom:0; 
-    border:0;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }  
-
-  .container .jumbotron{
-  margin-right: 30px;
-  background: transparent;
-  }
-  
-  .input-group{
-    display: inline;
-    width: 80%;
-  }
-  .affix-content .container {
-    width: 600px;
-  }
-    .affix-content .container .page-header{
-    margin-top: 0;
-  }  
-}
-
-@media (min-width: 992px){
-  .affix-content .container {
-  width: 900px;
-  }
-    .affix-content .container .page-header{
-    margin-top: 0;
-  }
-}
-
-@media (min-width: 1260px){
-  .affix-row{
-    overflow: hidden;
-  }
-
-  .affix-content{
-    overflow: none!important;
-  }
-
-  .affix-content .container {
-    width: 1000px;
-  }
-
-  .affix-content .container .page-header{
-    margin-top: 0;
-  }
-  .affix-content{
-    padding-right: 0px;
-    padding-left: 0px;
-  }  
-  .affix-title{
-    border-bottom: 1px solid #ecf0f1; 
-    padding-bottom:10px;
-  }
-  .navbar-nav {
-    margin: 0;
-  }
-  .navbar-collapse{
-    padding: 0;
-  }
-  .sidebar-nav .navbar li a:hover {
-    background-color: #428bca;
-    color: white;
-  }
-  .sidebar-nav .navbar li a > .caret {
-    margin-top: 8px;
-  }  
 }
