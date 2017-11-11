@@ -44,23 +44,30 @@
 					<li><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
 			        <li><a href="/viewall"><span class="glyphicon glyphicon-list-alt"></span>  Inventory</a></li>
 			        <li><a href="/reports"><span class="glyphicon glyphicon-tasks"></span> Reports</a></li>
+
+			        <form class="navbar-form">
+			        <div class="form-group" id="searchBar">
+			          <div class="input-group">
+			            <input type="text" class="form-control">
+			            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+			          </div>
+			        </div>
+			      </form>
 			      </ul>
+
 			     </div><!--/.nav-collapse -->
 		      </div>
 		  	</div>
 			</div>
 
 			<div class="col-sm-9 col-md-10 affix-content">
-				<div class="container">
-					<div class="page-header">
-					<h3><span class="glyphicon glyphicon-stats"></span> Data at Your Fingertips</h3>
-					</div>
+	
 
 					{{!-- INDEX / VIEWALL / REPORTS WILL RENDER IN THE BODY --}}
-					<div class="container text-center" id="bodyWell">
+				
 						{{{ body }}}
-					</div>
-				</div>
+					
+
 			</div>
 		</div>
 	
