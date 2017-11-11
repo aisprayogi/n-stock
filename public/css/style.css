@@ -162,7 +162,7 @@ div.navbar-collapse.sidebar-navbar-collapse.collapse.in {
     margin: auto;
 
   }
-
+  
   #wareHouse{
     max-height: 50%;  
     max-width: 50%; 
@@ -186,5 +186,12 @@ div.navbar-collapse.sidebar-navbar-collapse.collapse.in {
     background-size: cover;
     height:100%;
   }
-  
+}
+
+.table th {
+  text-align: center;
+}
+
+.table thead {
+  background-color: #e9e9e9;
 }

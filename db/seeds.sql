@@ -1,11 +1,12 @@
-INSERT INTO products (product_name, department_name, price, quantity_on_hand, quantity_sold)
-    VALUES  ("Plates", "Kitchen", 2.50, 2, 57),
-            ("Cups", "Kitchen", 1.50, 2, 22),
-            ("TV", "Electronics", 50.50, 2, 64),
-            ("Headphones", "Electronics", 12.50, 2, 124),
-            ("Dog Food", "Pets", 10.50, 2, 15),
-            ("Cat Food", "Pets", 10.50, 2, 13),
-            ("Shirts", "Clothing", 5.50, 2, 42),
-            ("Shoes", "Clothing", 15.50, 2, 44),
-            ("Couch", "Furniture", 222.50, 2, 4),
-            ("Chair", "Furniture", 112.50, 2, 18);
+INSERT INTO products (product_name, department_name, price, quantity_on_hand)
+    VALUES  ("Plates", "Kitchen", 2.50, 23),
+            ("Cups", "Kitchen", 1.50, 26),
+            ("TV", "Electronics", 50.50, 52),
+            ("Headphones", "Electronics", 12.50, 22),
+            ("Dog Food", "Pets", 10.50, 29),
+            ("Cat Food", "Pets", 10.50, 42),
+            ("Shirts", "Clothing", 5.50, 32),
+            ("Shoes", "Clothing", 15.50, 82),
+            ("Couch", "Furniture", 222.50, 12),
+            ("Chair", "Furniture", 112.50, 2),
+            ("Table", "Furniture", 315.00, 15);
