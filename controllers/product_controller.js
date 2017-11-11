@@ -32,21 +32,40 @@ router.get("/reports", function(req, res) {
   res.render("reports");  // RETURN REPORTS.HANDLEBARS WITHOUT DATA FOR TEMPLATING
 });
 
-router.post("/api/add_product", function(req, res) {
-  console.log(req.body);
-  // connection.query(
-  //   "INSERT INTO products SET ?",
-  //   {
-  //       product_name: req.name,
-  //       department_name: req.dept,
-  //       price: req.price,
-  //       quantity_on_hand: req.stock
-  //   },
-  //   function(err) {
-  //     if (err) { throw err; }
-  //     // Callback to Front End
-  //   }
-  // );
+router.post("/api/add_product/:name/:dept/:price/:stock", function(req, res) {
+  console.log(req.params.name);
+  console.log(req.params.dept);
+  console.log(req.params.price);
+  console.log(req.params.stock);
+  connection.query(
+    "INSERT INTO products SET ?",
+    {
+      product_name: req.params.name,
+      department_name: req.params.dept,
+      price: req.params.price,
+      quantity_on_hand: req.params.stock
+    },
+    function(err) {
+      if (err) { throw err; }
+      var queryString = "SELECT * FROM products;";     // SQL QUERY
+      connection.query(queryString, function(err, result) {     // (MYSQL) CONNECTION.QUERY
+        if (err) { throw err; }                                   // THROW ERRORS
+        for (var key in result) {
+          var price = (result[key].price).toString().split(".");
+          if (price[1] < 10 && price[1].length === 1) {
+            price[1] += "0";
+          } else if (!price[1]){
+            price.push('00');
+          }
+          result[key].price = price.join(".");
+        }
+        var hbObj = {
+          products: result
+        };
+        res.render("viewall", hbObj);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+      });
+    }
+  );
 });
 
 router.post("/api/edit_product/:id/:itemname/:dept/:price/:stock", function(req, res) {

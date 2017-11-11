@@ -1,13 +1,26 @@
 {{!-- DISPLAYS TABLE OF INVENTORY --}}
 <div class="row">
+  <h1 class="text-center">Product Inventory</h1>
+  <div id="addNew">
+    <h2>
+      <button class="btn btn-success">
+          <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      Add new item
+    </h2>
+  </div>
+  <br><br>
   <div class="table-responsive text-left">        
     <table class="table table-condensed table-bordered table-hover" style="font-size: 22px;">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Department</th>
-          <th>Price</th>
-          <th>Units</th>
+          <th class="col-header" data-name="name">
+            Name
+            <span class="glyphicon glyphicon-chevron-down" id='sorted'></span>
+          </th>
+          <th class="col-header" data-name="dept">Department</th>
+          <th class="col-header" data-name="price">Price</th>
+          <th class="col-header" data-name="units">Units</th>
           <th>Options</th>
         </tr>
       </thead>

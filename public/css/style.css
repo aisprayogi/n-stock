@@ -1,25 +1,51 @@
-#jumboMain {
-  background-image: url("../img/inventory.jpg"); 
-  width: 100vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center; 
-}
-#whiteLogo {
-  max-height: 50%;  
-  max-width: 50%; 
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-}
-.table th {
-  text-align: center;
-}
-.table thead {
-  background-color: #e9e9e9;
-}
+body {
+          padding-top: 50px;
+          position: relative;
+      }
+      
+      pre {
+          tab-size: 8;
+      }
+      
+      @media screen and (max-width: 768px) {
+          .side-collapse-container{
+              width:100%;
+              position:relative;
+              left:0;
+              transition:left .4s;
+          }
+          .side-collapse-container.out{
+              left:200px;
+          }
+          .side-collapse {
+              top:50px;
+              bottom:0;
+              left:0;
+              width:200px;
+              position:fixed;
+              overflow:hidden;
+              transition:width .4s;
+          }
+          .side-collapse.in {
+              width:0;
+          }
+      }
+    #mainImg{
+      background-color: transparent;
+      height: 100vh;
+    }
+    
+    #landing-page{
+      height: 90vh;
+    }
+
+    #positioner{
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    #nStock{
+      height: 50%;
+      width: 30%;
+    }
