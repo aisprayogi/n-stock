@@ -65,7 +65,7 @@ router.post("/api/edit_product/:id/:itemname/:dept/:price/:stock", function(req,
     ],
     function(error) {
       if (error) { throw error; }
-      // Callback to Front End
+      // Callback to Front End (if needed)
     }
   );
 });
@@ -80,7 +80,7 @@ router.post("/api/remove_product/:id", function(req, res) {
     ],
     function(error) {
       if (error) { throw error; }
-      // Callback to Front End
+      // Callback to Front End (if needed)
     }
   );
 });
