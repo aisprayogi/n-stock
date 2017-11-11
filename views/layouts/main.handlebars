@@ -37,30 +37,37 @@
 
 			        <li class="active">
 			          <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
-			  			<img src="../img/n-stock-logo-text.png" alt="logo" height="100" width="75">
+			  			<img src="../img/n-stock-logo-text-2.png" alt="logo" height="100" width="90">
 			          </a>
 			        </li>
 
 					<li><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
 			        <li><a href="/viewall"><span class="glyphicon glyphicon-list-alt"></span>  Inventory</a></li>
 			        <li><a href="/reports"><span class="glyphicon glyphicon-tasks"></span> Reports</a></li>
+
+			        <form class="navbar-form">
+			        <div class="form-group" id="searchBar">
+			          <div class="input-group">
+			            <input type="text" class="form-control">
+			            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+			          </div>
+			        </div>
+			      </form>
 			      </ul>
+
 			     </div><!--/.nav-collapse -->
 		      </div>
 		  	</div>
 			</div>
 
 			<div class="col-sm-9 col-md-10 affix-content">
-				<div class="container">
-					<div class="page-header">
-					<h3><span class="glyphicon glyphicon-stats"></span> Data at Your Fingertips</h3>
-					</div>
+	
 
 					{{!-- INDEX / VIEWALL / REPORTS WILL RENDER IN THE BODY --}}
-					<div class="container text-center" id="bodyWell">
+				
 						{{{ body }}}
-					</div>
-				</div>
+				
+
 			</div>
 		</div>
 	
@@ -68,7 +75,8 @@
 		{{!-- JAVASCRIPT LINKS HERE SO THE ENTIRE APP CAN ACCESS (I THINK... NEED TO TEST) --}}
 			<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		    <!-- Bootstrap Js CDN -->
-		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
+		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			<script type="text/javascript" src="/js/app.js"></script>
+
 	</body>
 </html>
