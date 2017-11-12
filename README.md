@@ -1,9 +1,9 @@
-![N-Stock Logo](./public/img/n-stock-logo-only.png)
-
 # N-STOCK
 Inventory Management System
 
 Hosted on Heroku: [Link](https://n-stock.herokuapp.com)
+
+![N-Stock Screenshot (Still Under Construction)](#)
 
 ## Overview
 This application populates with a standard database that you'd see in a typical retail store. It gives you the ability to add, edit, and delete items in the database as well as view report data on inventory and sales figures.
