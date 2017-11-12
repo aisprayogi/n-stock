@@ -1,4 +1,4 @@
-![N-Stock Logo](/img/n-stock-logo-only.png)
+![N-Stock Logo](./public/img/n-stock-logo-only.png)
 
 # N-STOCK
 Inventory Management System
