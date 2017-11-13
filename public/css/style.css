@@ -1,63 +1,137 @@
-body {
-          padding-top: 50px;
-          position: relative;
-      }
-      
-      pre {
-          tab-size: 8;
-      }
-      
-      @media screen and (max-width: 768px) {
-          .side-collapse-container{
-              width:100%;
-              position:relative;
-              left:0;
-              transition:left .4s;
-          }
-          .side-collapse-container.out{
-              left:200px;
-          }
-          .side-collapse {
-              top:50px;
-              bottom:0;
-              left:0;
-              width:200px;
-              position:fixed;
-              overflow:hidden;
-              transition:width .4s;
-          }
-          .side-collapse.in {
-              width:0;
-          }
-      }
-    #mainImg{
-      background-color: transparent;
-      height: 100vh;
+/* ------------ ANY SCREEN SIZE ---------- */
+/* (Overwritten by media queries below) */
+
+  /* ---------------------- */
+  /* MAIN.HANDLEBARS STYLES */
+  /* ---------------------- */
+    html, body {
+      height: 100%;
+      margin: 0;
     }
-    
+    .wrapper {
+      min-height: 100%;
+      padding-top: 50px;  /* Pushes down from navbar */
+      margin-bottom: -50px; /* Pushes up from footer */
+    }
+    .push{
+      height: 40px;
+    }
+    .footer{
+      height: 50px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* NAVBAR STYLES */
+      #navLogo{ /* Navbar Logo */
+        height: 40px;
+        width: 35px;
+        margin: 10px 10px 10px 30px;
+      }
+      .navbar-inverse { /* Main navbar styles */
+        background-color: #333;
+        border: none;
+        width: 100%;
+      }
+      .navbar-toggle{ /* Hamburger Button */
+        padding: 15px; 
+      }
+      .navbar-inverse .navbar-nav > li > a { /* Nav Links */
+        color: #fff;
+        font-size: 20px;
+        padding: 20px 20px 20px 20px;
+      }
+      .navbar-inverse .navbar-nav > li > a:hover,
+      .navbar-inverse .navbar-nav > li > a:focus { /* Nav Links Hovered & Focused */
+        color: #d4ab38;
+        text-decoration: none;
+      }
+    /* END NAVBAR STYLES */
+
+  /* ----------------------- */
+  /* INDEX.HANDLEBARS STYLES */
+  /* ----------------------- */
     #landing-page{
       height: 90vh;
+      background-image: url("/img/inventory.jpg");
+      background-size: cover;
+      background-position: center bottom;
+      background-attachment: fixed;
     }
-
     #positioner{
       position: relative;
-      top: 47%;
+      top: 50%;
       transform: translateY(-50%);
     }
-    
-    #nStock{
-      height: 50%;
-      width: 30%;
+    #indexLogo{
+      height: 300px;
+      width: 240px;
     }
 
-    #navLogo{
-      margin-right: 10px;
+  /* ------------------------- */
+  /* VIEWALL.HANDLEBARS STYLES */
+  /* ------------------------- */
+    .table {
+      font-size: 14px;
     }
 
-    .img-responsive2{
-      height: 70%;
+  /* ------------------------- */
+  /* REPORTS.HANDLEBARS STYLES */
+  /* ------------------------- */
+    /* Nothing Yet */
+
+
+/* --------------------------- */
+/* CONTAINER CLASS BREAKPOINTS */
+/* --------------------------- */
+
+  /* ------ MIN-WIDTH: 768PX ----- */
+    @media screen and (min-width: 768px) {
+
+      .navbar-inverse .navbar-nav > li > a { /* Nav Links */
+        padding: 20px 60px 20px 20px;
+      }
+      #navLogo{ /* Navbar Logo */
+        margin-left: 20px;
+      }
+      .table {
+        font-size: 16px;
+      }
+
     }
 
-    footer{
-      height:50px;
+  /* ------ MIN-WIDTH: 992PX ----- */
+    @media screen and (min-width: 992px) {
+
+      .table {
+        font-size: 18px;
+      }
+
+    }
+
+  /* ------ MIN-WIDTH: 1200PX ----- */
+    @media screen and (min-width: 1200px) {
+
+      .table {
+        font-size: 20px;
+      }
+      
+    }
+
+  /* Side Nav on Mobile Devices */
+  /* ---- MAX-WIDTH: 767PX ---- */
+    @media screen and (max-width: 767px) {
+      .side-collapse {
+        top:50px;
+        bottom:0;
+        right:0;
+        width:200px;
+        position:fixed;
+        overflow:hidden;
+        transition:width .4s;
+      }
+      .side-collapse.in {
+        width:0;
+      }
     }
