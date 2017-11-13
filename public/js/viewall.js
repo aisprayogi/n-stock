@@ -24,8 +24,7 @@
         form.append(label3);
         form.append(input3);
       // SUBMIT BUTTON
-        var addBtn = $("<br><button class='btn btn-md btn-success' type='submit' alt='Add Item' id='newItemSubmit'>")
-        addBtn.html("<span class='glyphicon glyphicon-plus-sign'></span>");
+        var addBtn = $("<br><button class='btn btn-sm btn-success' type='submit' alt='Add Item' id='newItemSubmit'>Submit</button>");
         form.append(addBtn);
     $("#addNew").html(form);
   }
