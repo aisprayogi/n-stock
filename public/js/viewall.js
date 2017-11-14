@@ -1,5 +1,57 @@
-var td0='', td1='', td2='', td3='', td4='';
+/////////////////////////////
+// ADD NEW ITEM INPUT FORM //
+/////////////////////////////
+  function addForm(){
+    var form = $("<form>");
+      // NAME
+        var label0 = $("<label for='name'>Name</label>");
+        var input0 = $("<input type='text' class='form-control' placeholder='Product Name' id='name'>");
+        form.append(label0);
+        form.append(input0);
+      // DEPARTMENT
+        var label1 = $("<label for='dept'>Department</label>");
+        var input1 = $("<input type='text' class='form-control' placeholder='Department Name' id='dept'>");
+        form.append(label1);
+        form.append(input1);
+      // PRICE
+        var label2 = $("<label for='price'>Price</label>");
+        var input2 = $("<input type='text' class='form-control' placeholder='Item Price' id='price'>");
+        form.append(label2);
+        form.append(input2);
+      // STOCK
+        var label3 = $("<label for='stock'>Stock</label>");
+        var input3 = $("<input type='number' class='form-control' placeholder='Items in stock' id='stock'>");
+        form.append(label3);
+        form.append(input3);
+      // SUBMIT BUTTON
+        var addBtn = $("<br><button class='btn btn-sm btn-success' type='submit' alt='Add Item' id='newItemSubmit'>Submit</button>");
+        form.append(addBtn);
+    $("#addNew").html(form);
+  }
 
+///////////////////////////////
+// SEND NEW ITEM TO DATABASE //
+///////////////////////////////
+  function sendNewItem(){
+    var addName = $("#name").val().trim();
+    var addDept = $("#dept").val().trim();
+    var addPrice = $("#price").val().trim();
+    var addStock = $("#stock").val().trim();
+    // VALIDATE PRICE FORMAT
+      if(addPrice.indexOf("$") !== -1){ alert("Please enter a price without the $ sign (e.g. 41.23)"); return; }
+      if(addPrice.indexOf(".") === -1){ alert("Please enter a valid price (e.g. 41.23)"); return; }
+      addPrice = addPrice.split(".");
+      if(addPrice[1].charAt(2)){ alert("Please enter a valid price (e.g. 41.23)"); return; }
+      if(addPrice[1] < 10 && addPrice[1] > 0 && !addPrice[1].charAt(1)){ alert("Please enter a valid price (e.g. 41.23)"); return; }
+      addPrice = addPrice.join(".");
+    // PUSH UPDATES TO THE DATABASE
+      var currentURL = window.location.origin;
+      $.post(currentURL+"/api/add_product/"+ addName+"/"+addDept+"/"+addPrice+"/"+addStock, function(res){
+        if (res) { console.log(res); }
+      });
+  }
+
+var td0='', td1='', td2='', td3='', td4='';
 ///////////////////////////
 // INITIATE EDITING MODE //
 ///////////////////////////
@@ -72,9 +124,7 @@ var td0='', td1='', td2='', td3='', td4='';
     // PUSH UPDATES TO THE DATABASE
       var currentURL = window.location.origin;
       $.post(currentURL+"/api/edit_product/"+ saveID+"/"+td0+"/"+td1+"/"+td2+"/"+td3, function(res){
-        if (res) {
-          console.log(res);
-        }
+        if (res) { console.log(res); }
       });
     // CHANGE BACK TO EDIT/DELETE BUTTONS
       saveROW.eq(4).html("<button class='btn btn-xs btn-primary' data-index='"+saveID+"' alt='Edit'><span class='glyphicon glyphicon-pencil'></span></button> " + 
@@ -92,9 +142,7 @@ var td0='', td1='', td2='', td3='', td4='';
     // PUSH UPDATE TO THE DATABASE
       var currentURL = window.location.origin;
       $.post(currentURL + "/api/remove_product/" + removeID, function(res){
-        if (res) {
-          console.log(res);
-        }
+        if (res) { console.log(res); }
       });
     // REMOVE THE ROW FROM THE TABLE
       $(this).closest('tr').remove();
@@ -105,3 +153,5 @@ var td0='', td1='', td2='', td3='', td4='';
   $(document).on("click", ".glyphicon-pencil", editIt);
   $(document).on("click", ".glyphicon-trash", removeIt);
   $(document).on("click", ".glyphicon-remove", cancelIt);
+  $(document).on("click", ".glyphicon-plus", addForm);
+  $(document).on("click", "#newItemSubmit", sendNewItem);
