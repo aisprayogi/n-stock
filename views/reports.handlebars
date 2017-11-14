@@ -26,11 +26,20 @@
 	var myChart = new Chart(ctx, {
 	type: 'bar',
 	data: {
-	labels: ["January", "Febuary", "March", "April", "May", "June"],
+	labels: ["Beauty", "Pharmacy", "Electronics", "Crafts", "Furniture", "Music", "Outdoors", "Appliances", "Auto", "Home Improvement", "Grocery", "Photo & Personalized Shop", "Fitness", "Entertainment", "Holiday"],
 	datasets: [{
 	label: 'Department Inventories',
-	data: [12, 19, 3, 5, 2, 3],
+	data: [8, 12, 13, 17, 15, 14, 14, 15, 18, 17, 18, 19, 20, 22, 20],
 	backgroundColor: [
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
+	'rgba(0, 85, 255, 0.5)',
 	'rgba(0, 85, 255, 0.5)',
 	'rgba(0, 85, 255, 0.5)',
 	'rgba(0, 85, 255, 0.5)',
@@ -39,6 +48,15 @@
 	'rgba(0, 85, 255, 0.5)'
 	],
 	borderColor: [
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
+	'rgba(0, 85, 255, 0.6)',
 	'rgba(0, 85, 255, 0.6)',
 	'rgba(0, 85, 255, 0.6)',
 	'rgba(0, 85, 255, 0.6)',
@@ -65,55 +83,40 @@
 	var myChart = new Chart(ctx, {
 	type: 'bar',
 	data: {
-	labels: ["January", "Febuary", "March", "April", "May", "June"],
+	labels: ["November '16", "December '16", "January '17", "February '17", "March '17", "April '17", "May '17", "June '17", "July '17", "August '17", "September '17", "October '17"],
 	datasets: [{
 	label: 'Department Sales',
-	data: [12, 19, 3, 5, 2, 3],
+	data: [8, 12, 13, 17, 15, 14, 14, 15, 18, 17, 18, 19],
 	backgroundColor: [
-	'rgba(255, 99, 132, 0.5)',
-	'rgba(255, 159, 64, 0.5)',
-	'rgba(255, 206, 86, 0.5)',
-	'rgba(75, 192, 192, 0.5)',
-	'rgba(54, 162, 235, 0.5)',
-	'rgba(153, 102, 255, 0.5)'
+	'rgba(255, 64, 0, 0.5)',
+	'rgba(255, 128, 0, 0.5)',
+	'rgba(255, 191, 0, 0.5)',
+	'rgba(255, 255, 0, 0.5)',
+	'rgba(191, 255, 0, 0.5)',
+	'rgba(0, 255, 128, 0.5)',
+	'rgba(0, 255, 191, 0.5)',
+	'rgba(0, 255, 255, 0.5)',
+	'rgba(0, 128, 255, 0.5)',
+	'rgba(64, 0, 255, 0.5)',
+	'rgba(128, 0, 255, 0.5)',
+	'rgba(191, 0, 255, 0.5)'
 	],
+	
 	borderColor: [
-	'rgba(255,99,132,1)',
-	'rgba(255, 159, 64, 0.6)',
-	'rgba(255, 206, 86, 1)',
-	'rgba(75, 192, 192, 1)',
-	'rgba(54, 162, 235, 0.6)',
-	'rgba(153, 102, 255, 0.6)'
+	'rgba(255, 64, 0, 0.6)',
+	'rgba(255, 128, 0, 0.6)',
+	'rgba(255, 191, 0, 0.6)',
+	'rgba(255, 255, 0, 0.6)',
+	'rgba(191, 255, 0, 0.6)',
+	'rgba(0, 255, 128, 0.6)',
+	'rgba(0, 255, 191, 0.6)',
+	'rgba(0, 255, 255, 0.6)',
+	'rgba(0, 128, 255, 0.6)',
+	'rgba(64, 0, 255, 0.6)',
+	'rgba(128, 0, 255, 0.6)',
+	'rgba(191, 0, 255, 0.6)'
 	],
-	borderWidth: 1
-	}]
-	},
-	options: {
-	scales: {
-	yAxes: [{
-	ticks: {
-	beginAtZero:true
-	}
-	}]
-	}
-	}
-	});
-
-//THIRDCHART
-var ctx = document.getElementById("myChart3");
-	var myChart = new Chart(ctx, {
-	type: 'line',
-	data: {
-	labels: ["January", "Febuary", "March", "April", "May", "June"],
-	datasets: [{
-	label: 'Total Sales',
-	data: [12, 19, 3, 5, 2, 3],
-	backgroundColor: [
-	'rgba(83,198,188, 0.5)'
-	],
-	borderColor: [
-	'rgb(83, 198, 188, 0.6)'
-	],
+	
 	borderWidth: 1
 	}]
 	},
