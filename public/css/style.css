@@ -128,7 +128,6 @@ div.navbar-collapse.sidebar-navbar-collapse.collapse.in {
   }  
 }
 
-@media (min-width: 350px) {
 
   #jumboMain{
     background-image: url("../img/inventory.jpg"); 
@@ -184,7 +183,7 @@ div.navbar-collapse.sidebar-navbar-collapse.collapse.in {
     background-size: cover;
     height:100%;
   }
-}
+
 
 .table th {
   text-align: center;
