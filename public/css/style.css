@@ -81,10 +81,18 @@
   /* VIEWALL.HANDLEBARS STYLES */
   /* ------------------------- */
     #view-all-container {
-      padding: 30px;
+      padding: 20px;
+      padding-top: 5px;
+    }
+    #addNew{
+      padding: 5px;
+      padding-left: 15px;
     }
     .table {
       font-size: 12px;
+    }
+    .table th {
+      background-color: #f1f1f1;
     }
 
   /* ------------------------- */
@@ -168,4 +176,24 @@
       .side-collapse.in {
         width:0;
       }
+    }
+
+    #exTab3 .nav-pills > li > a {
+      border-radius: 4px 4px 0 0 ;
+      border: solid 1px #b1b1b1;
+      margin-bottom: -1px;
+      z-index: 10;
+    }
+
+    #exTab3 .nav-pills > .active > a {
+      color: #333;
+      font-weight: bold;
+      background-color: #fff;
+      border-bottom: solid 1px #fff;
+    }
+    
+    #exTab3 .tab-content {
+      border: solid 1px #b1b1b1;
+      background-color: #fff;
+      padding : 5px 15px;
     }

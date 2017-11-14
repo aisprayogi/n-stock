@@ -24,10 +24,26 @@
         form.append(label3);
         form.append(input3);
       // SUBMIT BUTTON
-        var addBtn = $("<br><button class='btn btn-sm btn-success' type='submit' alt='Add Item' id='newItemSubmit'>Submit</button>");
+        var addBtn = $("<br><button class='btn btn-sm btn-success' type='submit' alt='Add Item' id='newItemSubmit'>Submit</button>" + 
+                        "&nbsp; <button class='btn btn-sm btn-danger' type='submit' alt='Cancel Item' id='cancelNewItemSubmit'>Cancel</button>");
         form.append(addBtn);
+    $("#addNew").addClass("col-md-12");
+    $("#addNew").removeClass("col-md-6");
+    $("#search-box").addClass("hidden");
     $("#addNew").html(form);
   }
+
+///////////////////////////
+// CANCEL NEW ITEM INPUT //
+///////////////////////////
+function cancelAddForm(){
+  var addBtn = $("<button class='btn btn-xs btn-success'><span class='glyphicon glyphicon-plus'></span></button>" + 
+                  "<strong>New item</strong>")
+  $("#addNew").removeClass("col-md-12");
+  $("#addNew").addClass("col-md-6");
+  $("#search-box").removeClass("hidden");
+  $("#addNew").html(addBtn);
+}
 
 ///////////////////////////////
 // SEND NEW ITEM TO DATABASE //
@@ -155,3 +171,4 @@ var td0='', td1='', td2='', td3='', td4='';
   $(document).on("click", ".glyphicon-remove", cancelIt);
   $(document).on("click", ".glyphicon-plus", addForm);
   $(document).on("click", "#newItemSubmit", sendNewItem);
+  $(document).on("click", "#cancelNewItemSubmit", cancelAddForm);
