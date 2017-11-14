@@ -105,24 +105,24 @@ function getData(){
           label: '',
           data: [kitchenOCTS, electronicsOCTS, clothingOCTS, furnitureOCTS, petsOCTS, outdoorOCTS, autoOCTS, fitnessOCTS],
           backgroundColor: [
-            'rgba(255, 64, 0, 0.5)',
-            'rgba(255, 128, 0, 0.5)',
-            'rgba(255, 191, 0, 0.5)',
-            'rgba(255, 255, 0, 0.5)',
-            'rgba(191, 255, 0, 0.5)',
-            'rgba(0, 255, 128, 0.5)',
+            'rgba(0, 255, 255, 0.5)',
             'rgba(0, 255, 191, 0.5)',
-            'rgba(0, 255, 255, 0.5)'
+            'rgba(0, 255, 128, 0.5)',
+            'rgba(191, 255, 0, 0.5)',
+            'rgba(255, 255, 0, 0.5)',
+            'rgba(255, 191, 0, 0.5)',
+            'rgba(255, 128, 0, 0.5)',
+            'rgba(255, 64, 0, 0.5)'
           ],
           borderColor: [
-            'rgba(255, 64, 0, 0.6)',
-            'rgba(255, 128, 0, 0.6)',
-            'rgba(255, 191, 0, 0.6)',
-            'rgba(255, 255, 0, 0.6)',
-            'rgba(191, 255, 0, 0.6)',
-            'rgba(0, 255, 128, 0.6)',
+            'rgba(0, 255, 255, 0.6)',
             'rgba(0, 255, 191, 0.6)',
-            'rgba(0, 255, 255, 0.6)'
+            'rgba(0, 255, 128, 0.6)',
+            'rgba(191, 255, 0, 0.6)',
+            'rgba(255, 255, 0, 0.6)',
+            'rgba(255, 191, 0, 0.6)',
+            'rgba(255, 128, 0, 0.6)',
+            'rgba(255, 64, 0, 0.6)'
           ],
           borderWidth: 1
         }]
