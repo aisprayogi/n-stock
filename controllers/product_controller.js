@@ -2,14 +2,8 @@ var express = require("express");
 var router = express.Router();
 var connection = require("../config/connection.js");
 
-router.get("/", function(req, res) {
-  res.render("index");  // RETURN INDEX.HANDLEBARS WITHOUT DATA FOR TEMPLATING
-});
-
-router.get("/viewall", function(req, res) {
-  var queryString = "SELECT * FROM products;";     // SQL QUERY
-  connection.query(queryString, function(err, result) {     // (MYSQL) CONNECTION.QUERY
-    if (err) { throw err; }                                   // THROW ERRORS
+// FIX PRICE DATA FROM DB
+  function fixPrice(result){
     for (var key in result) {
       var price = (result[key].price).toString().split(".");
       if (price[1] < 10 && price[1].length === 1) {
@@ -19,60 +13,72 @@ router.get("/viewall", function(req, res) {
       }
       result[key].price = price.join(".");
     }
-    var hbObj = {
-      products: result
-    };
-    res.render("viewall", hbObj);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
+    return result;
+  }
+
+// LOAD INDEX.HANDLEBARS
+  router.get("/", function(req, res) {
+    res.render("index");                                        // RETURN INDEX.HANDLEBARS
   });
-});
 
-router.get("/reports", function(req, res) {
-  // SELECT ALL FROM DB
-  // MANIPULATE THE DATA AS NEEDED TO POPULATE THE CHARTS
-  res.render("reports");  // RETURN REPORTS.HANDLEBARS WITHOUT DATA FOR TEMPLATING
-});
+// LOAD VIEWALL.HANDLEBARS
+  router.get("/viewall", function(req, res) {
+    var queryString = "SELECT * FROM products;";                // SQL QUERY
+    connection.query(queryString, function(err, result) {       // (MYSQL) CONNECTION.QUERY
+      if (err) { throw err; }                                   // THROW ERRORS
+      var sqlDATA = fixPrice(result);                           // FIX PRICE DATA
+      var hbObj = {
+        products: sqlDATA
+      };
+      res.render("viewall", hbObj);                             // RETURN VIEWALL.HANDLEBARS
+    });
+  });
 
-router.post("/api/add_product/:name/:dept/:price/:stock", function(req, res) {
-  console.log(req.params.name);
-  console.log(req.params.dept);
-  console.log(req.params.price);
-  console.log(req.params.stock);
-  connection.query(
-    "INSERT INTO products SET ?",
-    {
-      product_name: req.params.name,
-      department_name: req.params.dept,
-      price: req.params.price,
-      quantity_on_hand: req.params.stock
-    },
-    function(err) {
-      if (err) { throw err; }
-      var queryString = "SELECT * FROM products;";     // SQL QUERY
-      connection.query(queryString, function(err, result) {     // (MYSQL) CONNECTION.QUERY
-        if (err) { throw err; }                                   // THROW ERRORS
-        for (var key in result) {
-          var price = (result[key].price).toString().split(".");
-          if (price[1] < 10 && price[1].length === 1) {
-            price[1] += "0";
-          } else if (!price[1]){
-            price.push('00');
-          }
-          result[key].price = price.join(".");
-        }
-        var hbObj = {
-          products: result
-        };
-        res.render("viewall", hbObj);  // RETURN VIEWALL.HANDLEBARS WITH DATA FOR TEMPLATING
-      });
-    }
-  );
-});
+// LOAD REPORTS.HANDLEBARS
+  router.get("/reports", function(req, res) {
+    res.render("reports");                                      // RETURN REPORTS.HANDLEBARS
+  });
 
-router.post("/api/edit_product/:id/:itemname/:dept/:price/:stock", function(req, res) {
-  connection.query(
-    "UPDATE products SET ? WHERE ?",
-    [
+// GET DATA TO POPULATE REPORTS
+  router.get("/api/reports", function(req,res) {
+    var queryString = "SELECT * FROM products;";                // SQL QUERY
+    connection.query(queryString, function(err, result) {       // (MYSQL) CONNECTION.QUERY
+      if (err) { throw err; }                                   // THROW ERRORS
+      var sqlDATA = fixPrice(result);                           // FIX PRICE DATA
+      res.json(sqlDATA);                                        // RETURN SQL DATA FOR CHART POPULATION
+    });
+  });
+
+// ADD ITEM TO DB
+  router.post("/api/add_product/:name/:dept/:price/:stock", function(req, res) {
+    connection.query(
+      "INSERT INTO products SET ?",
       {
+        product_name: req.params.name,
+        department_name: req.params.dept,
+        price: req.params.price,
+        quantity_on_hand: req.params.stock
+      },
+      function(err) {
+        if (err) { throw err; }
+        var queryString = "SELECT * FROM products;";                // SQL QUERY
+        connection.query(queryString, function(err, result) {       // (MYSQL) CONNECTION.QUERY
+          if (err) { throw err; }                                   // THROW ERRORS
+          var sqlDATA = fixPrice(result);                           // FIX PRICE DATA
+          var hbObj = {
+            products: sqlDATA
+          };
+          res.render("viewall", hbObj);                             // RETURN VIEWALL.HANDLEBARS
+        });
+      }
+    );
+  });
+
+// UPDATE ITEM IN DB
+  router.post("/api/edit_product/:id/:itemname/:dept/:price/:stock", function(req, res) {
+    connection.query(
+      "UPDATE products SET ? WHERE ?",
+      [{
         product_name: req.params.itemname,
         department_name: req.params.dept,
         price: req.params.price,
@@ -80,28 +86,24 @@ router.post("/api/edit_product/:id/:itemname/:dept/:price/:stock", function(req,
       },
       {
         item_id: req.params.id
+      }],
+      function(error) {
+        if (error) { throw error; }
       }
-    ],
-    function(error) {
-      if (error) { throw error; }
-      // Callback to Front End (if needed)
-    }
-  );
-});
+    );
+  });
 
-router.post("/api/remove_product/:id", function(req, res) {
-  connection.query(
-    "DELETE FROM products WHERE ?",
-    [
-      {
-        item_id: req.params.id
+// DELETE FROM DB
+  router.post("/api/remove_product/:id", function(req, res) {
+    connection.query(
+      "DELETE FROM products WHERE ?",
+      [{
+          item_id: req.params.id
+      }],
+      function(error) {
+        if (error) { throw error; }
       }
-    ],
-    function(error) {
-      if (error) { throw error; }
-      // Callback to Front End (if needed)
-    }
-  );
-});
+    );
+  });
 
 module.exports = router;

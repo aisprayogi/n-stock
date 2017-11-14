@@ -10,6 +10,12 @@
       margin: 0;
       background-color: #fafafa;
     }
+    .jumbotron {
+      font-weight: bold;
+      font-size: 20px;
+      padding: 30px;
+      height: 70px;
+    }
     .wrapper {
       min-height: 100%;
       padding-top: 50px;  /* Pushes down from navbar */
@@ -74,48 +80,39 @@
   /* ------------------------- */
   /* VIEWALL.HANDLEBARS STYLES */
   /* ------------------------- */
-    #view-all-banner {
-      background-color: red;
-      margin-top: -7px;
-      height: 65px;
-      padding: 30px;
-      font-weight: bold;
-      font-size: 20px;
-    }
     #view-all-container {
       padding: 30px;
     }
     .table {
-      font-size: 14px;
+      font-size: 12px;
     }
 
   /* ------------------------- */
   /* REPORTS.HANDLEBARS STYLES */
   /* ------------------------- */
-    #reports-banner {
-      background-color: red;
-      margin-top: -7px;
-      height: 65px;
-      padding: 30px;
-      font-weight: bold;
-      font-size: 20px;
-    }
     #reports-container {
       padding: 30px;
     }
-
+    .chart-keys{
+      font-size: 10px;
+    }
 
 /* --------------------------- */
 /* CONTAINER CLASS BREAKPOINTS */
 /* --------------------------- */
 
   /* ------ MIN-WIDTH: 768PX ----- */
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 450px) {
+      .chart-keys{
+        font-size: 12px;
+      }
+    }
 
-      #view-all-banner, #reports-banner {
+  /* ------ MIN-WIDTH: 768PX ----- */
+    @media screen and (min-width: 768px) {
+      .jumbotron {
         font-size: 28px;
         height: 85px;
-        padding: 35px;
       }
       .navbar-inverse .navbar-nav > li > a { /* Nav Links */
         padding: 20px 60px 20px 20px;
@@ -126,12 +123,13 @@
       .table {
         font-size: 16px;
       }
-
+      .chart-keys{
+        font-size: 14px;
+      }
     }
 
   /* ------ MIN-WIDTH: 992PX ----- */
     @media screen and (min-width: 992px) {
-
       #view-all-banner, #reports-banner {
         font-size: 32px;
         height: 90px;
@@ -139,12 +137,10 @@
       .table {
         font-size: 18px;
       }
-
     }
 
   /* ------ MIN-WIDTH: 1200PX ----- */
     @media screen and (min-width: 1200px) {
-
       #view-all-banner, #reports-banner {
         font-size: 36px;
         height: 100px;
@@ -152,7 +148,9 @@
       .table {
         font-size: 20px;
       }
-
+      .chart-keys{
+        font-size: 18px;
+      }
     }
 
   /* Side Nav on Mobile Devices */
