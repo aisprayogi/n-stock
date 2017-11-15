@@ -28,8 +28,11 @@
                         "&nbsp; <button class='btn btn-sm btn-danger' type='submit' alt='Cancel Item' id='cancelNewItemSubmit'>Cancel</button>");
         form.append(addBtn);
     $("#addNew").addClass("col-md-12");
-    $("#addNew").removeClass("col-md-6");
+    $("#addNew").removeClass("col-md-3");
+    $("#addNew").addClass("col-xs-12");
+    $("#addNew").removeClass("col-xs-6");
     $("#search-box").addClass("hidden");
+    $("#filter").addClass("hidden");
     $("#addNew").html(form);
   }
 
@@ -38,10 +41,13 @@
 ///////////////////////////
 function cancelAddForm(){
   var addBtn = $("<button class='btn btn-xs btn-success'><span class='glyphicon glyphicon-plus'></span></button>" + 
-                  "<strong>New item</strong>")
+                  "<strong>&nbsp; New item</strong>")
   $("#addNew").removeClass("col-md-12");
-  $("#addNew").addClass("col-md-6");
+  $("#addNew").addClass("col-md-3");
+  $("#addNew").removeClass("col-xs-12");
+  $("#addNew").addClass("col-xs-6");
   $("#search-box").removeClass("hidden");
+  $("#filter").removeClass("hidden");
   $("#addNew").html(addBtn);
 }
 
