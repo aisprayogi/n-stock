@@ -81,10 +81,18 @@
   /* VIEWALL.HANDLEBARS STYLES */
   /* ------------------------- */
     #view-all-container {
-      padding: 30px;
+      padding: 20px;
+      padding-top: 5px;
+    }
+    #addNew{
+      padding: 5px;
+      padding-left: 15px;
     }
     .table {
       font-size: 12px;
+    }
+    .table th {
+      background-color: #f1f1f1;
     }
 
   /* ------------------------- */
