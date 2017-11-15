@@ -168,19 +168,19 @@ VALUES  ("Plates 1", "Kitchen"),
         ("Cardio Machine 5", "Fitness");
 
 UPDATE products SET
-    price: ((RAND() * 501) + 1),
-    quantity_on_hand: (FLOOR(RAND() * 100) + 1),
-    nov16_sales: ((RAND() * 2001) + 1),
-    dec16_sales: ((RAND() * 2001) + 1),
-    jan17_sales: ((RAND() * 2001) + 1),
-    feb17_sales: ((RAND() * 2001) + 1),
-    mar17_sales: ((RAND() * 2001) + 1),
-    apr17_sales: ((RAND() * 2001) + 1),
-    may17_sales: ((RAND() * 2001) + 1),
-    jun17_sales: ((RAND() * 2001) + 1),
-    jul17_sales: ((RAND() * 2001) + 1),
-    aug17_sales: ((RAND() * 2001) + 1),
-    sep17_sales: ((RAND() * 2001) + 1),
-    oct17_sales: ((RAND() * 2001) + 1)
+    price = ((RAND() * 501) + 1),
+    quantity_on_hand = (FLOOR(RAND() * 100) + 1),
+    nov16_sales = ((RAND() * 2001) + 1),
+    dec16_sales = ((RAND() * 2001) + 1),
+    jan17_sales = ((RAND() * 2001) + 1),
+    feb17_sales = ((RAND() * 2001) + 1),
+    mar17_sales = ((RAND() * 2001) + 1),
+    apr17_sales = ((RAND() * 2001) + 1),
+    may17_sales = ((RAND() * 2001) + 1),
+    jun17_sales = ((RAND() * 2001) + 1),
+    jul17_sales = ((RAND() * 2001) + 1),
+    aug17_sales = ((RAND() * 2001) + 1),
+    sep17_sales = ((RAND() * 2001) + 1),
+    oct17_sales = ((RAND() * 2001) + 1)
 WHERE
     item_id > 0;
