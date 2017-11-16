@@ -1,127 +1,86 @@
-{{!-- DISPLAYS SALES/INVENTORY REPORTS --}}
-<div class="container">
-	<div class = "row" id = "table">
-		<div class = "col-sm-12">
-			<div class="chart-container">
-				<canvas id="myChart"></canvas>
+{{!-- BANNER --}}
+	<div class="text-center jumbotron" id="reports-banner">
+		Inventory and Sales Reports
+	</div>
+{{!-- PAGE CONTAINER --}}
+	<div class="container" id="reports-container">
+		<div class="row text-center">
+			<div class = "col-xs-12">
+				{{!-- CHART 1 --}}
+					<div class="panel panel-default">
+						<h4>Current Inventory on Hand</h4>
+						<div class="chart-container panel-body">
+							<div class="col-xs-12 col-md-10">
+								<canvas id="myChart"></canvas>
+							</div>
+							<div class="col-xs-12 col-md-2 chart-keys text-left">
+								<h6 class="text-center"><strong>KEY</strong></h6>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>1)</strong> Kitchen</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>2)</strong> Electronics</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>3)</strong> Clothing</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>4)</strong> Furniture</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>5)</strong> Pets</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>6)</strong> Outdoor</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>7)</strong> Auto</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>8)</strong> Fitness</span>
+							</div>
+						</div>
+					</div>
 			</div>
-			<div class="chart-container">
-				<canvas id="myChart2"></canvas>
+			<div class="col-xs-12">
+				{{!-- CHART 2 --}}
+					<div class="panel panel-default">
+						<h4>Dept Sales Figures Oct 2017</h4>
+						<div class="chart-container panel-body">
+							<div class="col-xs-12 col-md-10">
+								<canvas id="myChart2"></canvas>
+							</div>
+							<div class="col-xs-12 col-md-2 chart-keys text-left">
+								<h6 class="text-center"><strong>KEY</strong></h6>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>1)</strong> Kitchen</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>2)</strong> Electronics</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>3)</strong> Clothing</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>4)</strong> Furniture</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>5)</strong> Pets</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>6)</strong> Outdoor</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>7)</strong> Auto</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>8)</strong> Fitness</span>
+							</div>
+						</div>
+					</div>
 			</div>
-			<div class="chart-container">
-				<canvas id="myChart3"></canvas>
+			<div class="col-xs-12">
+				{{!-- CHART 3 --}}
+					<div class="panel panel-default">
+						<h4>Last 12 Months Total Sales</h4>
+						<div class="chart-container panel-body">
+							<div class="col-xs-12 col-md-10">
+								<canvas id="myChart3"></canvas>
+							</div>
+							<div class="col-xs-12 col-md-2 chart-keys text-left">
+								<h6 class="text-center"><strong>KEY</strong></h6>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>11)</strong> Nov'16</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>12)</strong> Dec'16</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>1)</strong> Jan'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>2)</strong> Feb'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>3)</strong> Mar'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>4)</strong> Apr'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>5)</strong> May'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>6)</strong> Jun'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>7)</strong> Jul'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>8)</strong> Aug'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>9)</strong> Sep'17</span>
+								<span class="col-xs-6 col-sm-4 col-md-12"><strong>10)</strong> Oct'17</span>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
-<script>
-//FIRSTCHART
-	var ctx = document.getElementById("myChart");
-	var myChart = new Chart(ctx, {
-	type: 'bar',
-	data: {
-	labels: ["January", "Febuary", "March", "April", "May", "June"],
-	datasets: [{
-	label: 'Department Inventories',
-	data: [12, 19, 3, 5, 2, 3],
-	backgroundColor: [
-	'rgba(0, 85, 255, 0.5)',
-	'rgba(0, 85, 255, 0.5)',
-	'rgba(0, 85, 255, 0.5)',
-	'rgba(0, 85, 255, 0.5)',
-	'rgba(0, 85, 255, 0.5)',
-	'rgba(0, 85, 255, 0.5)'
-	],
-	borderColor: [
-	'rgba(0, 85, 255, 0.6)',
-	'rgba(0, 85, 255, 0.6)',
-	'rgba(0, 85, 255, 0.6)',
-	'rgba(0, 85, 255, 0.6)',
-	'rgba(0, 85, 255, 0.6)',
-	'rgba(0, 85, 255, 0.6)'
-	],
-	borderWidth: 1
-	}]
-	},
-	options: {
-	scales: {
-	yAxes: [{
-	ticks: {
-	beginAtZero:true
-	}
-	}]
-	}
-	}
-	});
-
-//SECONDCHART
-	var ctx = document.getElementById("myChart2");
-	var myChart = new Chart(ctx, {
-	type: 'bar',
-	data: {
-	labels: ["January", "Febuary", "March", "April", "May", "June"],
-	datasets: [{
-	label: 'Department Sales',
-	data: [12, 19, 3, 5, 2, 3],
-	backgroundColor: [
-	'rgba(255, 99, 132, 0.5)',
-	'rgba(255, 159, 64, 0.5)',
-	'rgba(255, 206, 86, 0.5)',
-	'rgba(75, 192, 192, 0.5)',
-	'rgba(54, 162, 235, 0.5)',
-	'rgba(153, 102, 255, 0.5)'
-	],
-	borderColor: [
-	'rgba(255,99,132,1)',
-	'rgba(255, 159, 64, 0.6)',
-	'rgba(255, 206, 86, 1)',
-	'rgba(75, 192, 192, 1)',
-	'rgba(54, 162, 235, 0.6)',
-	'rgba(153, 102, 255, 0.6)'
-	],
-	borderWidth: 1
-	}]
-	},
-	options: {
-	scales: {
-	yAxes: [{
-	ticks: {
-	beginAtZero:true
-	}
-	}]
-	}
-	}
-	});
-
-//THIRDCHART
-var ctx = document.getElementById("myChart3");
-	var myChart = new Chart(ctx, {
-	type: 'line',
-	data: {
-	labels: ["January", "Febuary", "March", "April", "May", "June"],
-	datasets: [{
-	label: 'Total Sales',
-	data: [12, 19, 3, 5, 2, 3],
-	backgroundColor: [
-	'rgba(83,198,188, 0.5)'
-	],
-	borderColor: [
-	'rgb(83, 198, 188, 0.6)'
-	],
-	borderWidth: 1
-	}]
-	},
-	options: {
-	scales: {
-	yAxes: [{
-	ticks: {
-	beginAtZero:true
-	}
-	}]
-	}
-	}
-	});
-</script>
+	<br>
+{{!-- JQUERY --}}
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+{{!-- CHART.JS --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+{{!-- CHART DATA --}}
+	<script src="/js/reports.js"></script>
