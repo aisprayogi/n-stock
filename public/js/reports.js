@@ -171,3 +171,17 @@ function getData(){
     });
 }
 getData();
+
+/////////////////////////////////////
+// REMOVE CONTAINER IMG BACKGROUND //
+/////////////////////////////////////
+function changeBG(){ 
+  if ($("#mainwrapper").attr("data-currentBG") === 'plain') {
+    // DO NOTHING
+  } else if ($("#mainwrapper").attr("data-currentBG") === 'containers') {
+    $("#mainwrapper").removeClass('containerBG');
+    $("#mainwrapper").addClass('plainBG');
+    $("#mainwrapper").attr("data-currentBG", "plain");
+  }
+}
+changeBG();
