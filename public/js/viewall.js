@@ -170,6 +170,20 @@ var td0='', td1='', td2='', td3='', td4='';
       $(this).closest('tr').remove();
   }
 
+/////////////////////////////////////
+// REMOVE CONTAINER IMG BACKGROUND //
+/////////////////////////////////////
+function changeBG(){ 
+  if ($("#mainwrapper").attr("data-currentBG") === 'plain') {
+    // DO NOTHING
+  } else if ($("#mainwrapper").attr("data-currentBG") === 'containers') {
+    $("#mainwrapper").removeClass('containerBG');
+    $("#mainwrapper").addClass('plainBG');
+    $("#mainwrapper").attr("data-currentBG", "plain");
+  }
+}
+changeBG();
+
 // CLICK LISTENERS FOR EDIT BUTTONS
   $(document).on("click", ".glyphicon-ok", saveIt);
   $(document).on("click", ".glyphicon-pencil", editIt);
